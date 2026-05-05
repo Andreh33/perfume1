@@ -35,7 +35,7 @@ const sections = [
       { href: "/admin/pedidos", label: "Pedidos", icon: ShoppingCart },
       { href: "/admin/clientes", label: "Clientes", icon: Users },
       { href: "/admin/cupones", label: "Cupones", icon: Tag },
-      { href: "/admin/reseñas", label: "Reseñas", icon: MessageSquare },
+      { href: "/admin/reviews", label: "Reseñas", icon: MessageSquare },
     ],
   },
   {

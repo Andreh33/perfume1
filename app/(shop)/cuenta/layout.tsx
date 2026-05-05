@@ -7,6 +7,7 @@ const tabs = [
   { href: "/cuenta/pedidos", label: "Pedidos" },
   { href: "/cuenta/direcciones", label: "Direcciones" },
   { href: "/cuenta/favoritos", label: "Favoritos" },
+  { href: "/cuenta/seguridad", label: "Seguridad" },
   { href: "/cuenta/ajustes", label: "Ajustes" },
 ];
 

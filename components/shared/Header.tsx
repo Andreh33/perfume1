@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Heart, Search, ShoppingBag, User, Menu, X, Globe } from "lucide-react";
 import { Logo } from "./Logo";
+import { MegaMenu } from "./MegaMenu";
 import { cn } from "@/lib/utils";
 import { localeMeta, locales, type Locale } from "@/lib/i18n/config";
 
@@ -19,7 +20,20 @@ const links: NavLink[] = [
   { href: "/blog", key: "blog" },
 ];
 
-export function Header({ cartCount = 0, locale }: { cartCount?: number; locale: Locale }) {
+type MegaProps = {
+  collections: Array<{ slug: string; name: string; bannerImage?: string | null }>;
+  notes: Array<{ slug: string; name: string }>;
+};
+
+export function Header({
+  cartCount = 0,
+  locale,
+  mega,
+}: {
+  cartCount?: number;
+  locale: Locale;
+  mega?: MegaProps;
+}) {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -54,23 +68,30 @@ export function Header({ cartCount = 0, locale }: { cartCount?: number; locale: 
 
         <Logo />
 
-        <nav className="hidden md:flex items-center gap-9" aria-label="Principal">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="accent text-[0.7rem] text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-gold)]"
-            >
-              {t(link.key)}
-            </Link>
-          ))}
-        </nav>
+        {mega ? (
+          <nav aria-label="Principal">
+            <MegaMenu collections={mega.collections} notes={mega.notes} />
+          </nav>
+        ) : (
+          <nav className="hidden md:flex items-center gap-9" aria-label="Principal">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="accent text-[0.7rem] text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-gold)]"
+              >
+                {t(link.key)}
+              </Link>
+            ))}
+          </nav>
+        )}
 
         <div className="flex items-center gap-1 md:gap-2">
           <button
             type="button"
             className="p-2 text-[var(--color-ink-muted)] hover:text-[var(--color-gold)] transition-colors"
             aria-label={t("search")}
+            onClick={() => window.dispatchEvent(new Event("sol:open-search"))}
           >
             <Search className="h-5 w-5" />
           </button>

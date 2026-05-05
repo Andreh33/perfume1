@@ -48,7 +48,7 @@ const config: NextConfig = {
     ],
   },
 
-  serverExternalPackages: ["@prisma/client", "argon2", "ical-generator"],
+  serverExternalPackages: ["@prisma/client", "argon2", "ical-generator", "pdf-lib", "otpauth"],
 
   async headers() {
     return [

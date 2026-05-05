@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { Heart, Share2, Truck, RotateCcw, Star } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/shop/ProductCard";
+import { Gallery } from "@/components/product/Gallery";
 import { pickI18n } from "@/lib/utils";
 import { buildMetadata } from "@/lib/seo";
 import { env } from "@/lib/env";
@@ -129,33 +129,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16">
           {/* Galería */}
-          <div className="space-y-3">
-            {product.images[0] && (
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-[var(--color-bg-night)] halo">
-                <Image
-                  src={product.images[0].url}
-                  alt={pickI18n(product.images[0].alt, locale) || name}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover"
-                />
-              </div>
-            )}
-            <div className="grid grid-cols-4 gap-3">
-              {product.images.slice(1, 5).map((img) => (
-                <div key={img.id} className="relative aspect-square overflow-hidden rounded-md bg-[var(--color-bg-night)]">
-                  <Image
-                    src={img.url}
-                    alt={pickI18n(img.alt, locale) || name}
-                    fill
-                    sizes="20vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <Gallery
+            name={name}
+            images={product.images.map((img) => ({
+              id: img.id,
+              url: img.url,
+              alt: pickI18n(img.alt, locale) || name,
+              blurDataUrl: img.blurDataUrl,
+            }))}
+          />
 
           {/* Info */}
           <div className="space-y-7">

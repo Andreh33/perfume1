@@ -3,6 +3,7 @@ import type Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import { env } from "@/lib/env";
+import { email } from "@/lib/email";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,7 +38,7 @@ export async function POST(req: Request) {
           },
         });
 
-        // Decrementar stock
+        // Decrementar stock + enviar email
         const order = await prisma.order.findUnique({ where: { id: orderId }, include: { items: true } });
         if (order) {
           await Promise.all(
@@ -50,6 +51,34 @@ export async function POST(req: Request) {
                 }),
               ),
           );
+
+          const shipping = order.shippingAddress as {
+            firstName?: string;
+            line1: string;
+            line2?: string;
+            city: string;
+            postalCode: string;
+            country: string;
+          };
+
+          await email.orderConfirmation({
+            to: order.email,
+            orderNumber: order.number,
+            customerName: shipping.firstName ?? "Cliente",
+            items: order.items.map((i) => ({
+              name: i.productName,
+              sku: i.variantSku,
+              sizeMl: i.variantSize,
+              quantity: i.quantity,
+              unitPriceCents: i.unitPriceCents,
+              imageUrl: i.imageUrl,
+            })),
+            subtotalCents: order.subtotalCents,
+            shippingCents: order.shippingCents,
+            taxCents: order.taxCents,
+            totalCents: order.totalCents,
+            shippingAddress: shipping,
+          });
         }
         break;
       }

@@ -3,6 +3,29 @@
 Todas las versiones notables se documentarán aquí.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.2.0] — 2026-05-05
+
+### Añadido
+
+- **Plantillas React Email** completas: shell de marca compartido + Welcome, OrderConfirmation, OrderShipped, PasswordReset, EmailVerification, AbandonedCart, ReviewRequest, StockNotification, FairReminder, NewsletterMonthly. Wrapper `lib/email/index.ts` con render server-only y fallback dev.
+- **OG dinámico por producto y por feria** (`opengraph-image.tsx`) con composición tipográfica y dorada.
+- **Search Cmd+K** (`SearchCommand`) con cmdk: atajo `⌘K` / `/`, debounce, agrupación productos/ferias/blog, navegación por teclado y rápida.
+- **Vista Calendario y Mapa** en `/ferias` (FairsCalendarView con date-fns y FairsMapView con MapLibre + MapTiler), parámetro `?view=list|calendar|map`.
+- **Galería Embla** en la ficha de producto: thumbs verticales, zoom de lupa al hover, lightbox con teclado, botón placeholder 360°.
+- **Mega-menú** del header con preview de colecciones e iconos de notas.
+- **2FA TOTP** completo: `lib/totp.ts`, página `/cuenta/seguridad`, server actions de enroll/confirm/disable, generación de backup codes y QR.
+- **Tiptap** rich-text editor (`RichTextEditor`) con barra de herramientas dorada, link, image, headings y blockquote.
+- **DataTable** compartida con tanstack-table (sort, search, pagination).
+- **CRUD de productos** completo en admin con tabs General / Variantes / Imágenes / Notas / SEO, multi-idioma y validación Zod en server.
+- **PDF de factura** (`lib/pdf/invoice.ts` con pdf-lib) y endpoint `/api/orders/[id]/invoice`.
+- **Admin: cupones** (CRUD con generador de códigos), **reseñas** (moderación con audit log), **clientes**, **inventario** con alertas de stock crítico.
+- **Pedido detalle admin** con cambio de estado, tracking + notificación email, refund Stripe.
+- **Ajustes admin**: tienda, envíos (zonas), impuestos (IVA por país), apariencia (hero/CTA).
+- **Cookie banner RGPD** granular y **botón flotante WhatsApp**.
+- **Página /cuenta/pedidos y /cuenta/favoritos** del cliente.
+- Cableado del email de confirmación al webhook de Stripe.
+- Stripe webhook ahora envía `OrderConfirmation` automáticamente.
+
 ## [0.1.0] — 2026-05-05
 
 ### Añadido
