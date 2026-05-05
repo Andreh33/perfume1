@@ -50,6 +50,32 @@ const config: NextConfig = {
 
   serverExternalPackages: ["@prisma/client", "argon2", "ical-generator", "pdf-lib", "otpauth"],
 
+  outputFileTracingExcludes: {
+    "*": [
+      "node_modules/@sentry/**",
+      "node_modules/@swc/core-*/**",
+      "node_modules/@esbuild/**",
+      "node_modules/esbuild/**",
+      "node_modules/typescript/**",
+      "node_modules/webpack/**",
+      "node_modules/terser/**",
+      "node_modules/.cache/**",
+      "node_modules/.pnpm/@swc+core-*/**",
+      "node_modules/.pnpm/@esbuild+*/**",
+      "node_modules/.pnpm/esbuild@*/**",
+      "node_modules/.pnpm/typescript@*/**",
+      "node_modules/.pnpm/@sentry+*/**",
+      "node_modules/.pnpm/playwright*/**",
+      "node_modules/.pnpm/@playwright+*/**",
+      "node_modules/.pnpm/vitest@*/**",
+      "node_modules/.pnpm/@vitest+*/**",
+      "node_modules/.pnpm/@biomejs+*/**",
+      "node_modules/.pnpm/@react-email+*/**",
+      "node_modules/.pnpm/react-email@*/**",
+      ".next/cache/**",
+    ],
+  },
+
   async headers() {
     return [
       {
