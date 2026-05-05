@@ -12,6 +12,8 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "vercel-build:first-deploy": "prisma generate && prisma db push --accept-data-loss && next build",
     "start": "next start",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",

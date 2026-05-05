@@ -163,9 +163,20 @@ tests/{unit,e2e}/         → Vitest + Playwright
 
 ---
 
-## Despliegue
+## Despliegue a producción
 
-Ver [`DEPLOY.md`](./DEPLOY.md).
+Guía completa paso-a-paso en [**DEPLOY.md**](./DEPLOY.md). Resumen:
+
+1. Push a GitHub.
+2. Crear DB en [Neon](https://console.neon.tech) (Postgres 16, Frankfurt).
+3. Importar repo en [vercel.com/new](https://vercel.com/new) — Build command: `pnpm vercel-build:first-deploy` (solo el primer deploy).
+4. Pegar las env vars del `.env.example` (mínimo: `DATABASE_URL`, `DIRECT_URL`, `AUTH_SECRET`, `STRIPE_*`, `RESEND_API_KEY`, `EMAIL_FROM`, `CRON_SECRET`).
+5. Cuando termine, configurar el webhook de Stripe y `STRIPE_WEBHOOK_SECRET`.
+6. Sembrar la DB en producción: `pnpm prisma db seed` con `DATABASE_URL` apuntando a Neon.
+7. Crear migración inicial y cambiar build a `pnpm vercel-build`.
+8. Smoke tests: `./scripts/verify-deploy.sh https://tu-dominio.com`.
+
+Tiempo: 30–45 min la primera vez. Coste: 0 €/mes en tier gratuito.
 
 ---
 

@@ -18,6 +18,9 @@ const envSchema = z.object({
   AUTH_GOOGLE_SECRET: z.string().optional(),
   AUTH_EMAIL_FROM: z.string().optional(),
 
+  // Vercel Cron — Vercel firma /api/cron/* con `Bearer ${CRON_SECRET}`
+  CRON_SECRET: z.string().optional(),
+
   ADMIN_EMAIL: z.string().email().optional(),
   ADMIN_PASSWORD: z.string().min(8).optional(),
 
