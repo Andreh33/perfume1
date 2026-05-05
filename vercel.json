@@ -1,9 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "pnpm vercel-build",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "regions": ["fra1"],
+  "buildCommand": "pnpm vercel-build:first-deploy",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "regions": ["iad1"],
   "github": {
     "silent": true
   },
@@ -31,18 +31,5 @@
     { "source": "/admin", "destination": "/admin/dashboard", "permanent": false },
     { "source": "/perfumes/(.*)/", "destination": "/perfumes/$1", "permanent": true }
   ],
-  "crons": [
-    {
-      "path": "/api/cron/abandoned-carts",
-      "schedule": "0 10 * * *"
-    },
-    {
-      "path": "/api/cron/review-requests",
-      "schedule": "0 11 * * *"
-    },
-    {
-      "path": "/api/cron/fair-reminders",
-      "schedule": "0 9 * * 1"
-    }
-  ]
+  "crons": []
 }
