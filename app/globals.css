@@ -1,0 +1,533 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   Sol Perfumes Árabes — Design tokens
+   Paleta OKLCH. Negro nunca es #000. Dorado nunca es plano.
+   ========================================================================= */
+
+@theme {
+  /* Fondos */
+  --color-bg-deep: oklch(0.14 0.015 60);
+  --color-bg-night: oklch(0.18 0.020 55);
+  --color-bg-velvet: oklch(0.22 0.025 50);
+
+  /* Texto */
+  --color-ink: oklch(0.96 0.010 80);
+  --color-ink-muted: oklch(0.72 0.015 75);
+  --color-ink-subtle: oklch(0.55 0.012 70);
+
+  /* Dorados */
+  --color-gold: oklch(0.78 0.13 82);
+  --color-gold-bright: oklch(0.86 0.15 88);
+  --color-gold-deep: oklch(0.55 0.10 70);
+  --color-copper: oklch(0.62 0.14 50);
+
+  /* Estado */
+  --color-success: oklch(0.70 0.14 145);
+  --color-warning: oklch(0.78 0.16 80);
+  --color-danger: oklch(0.62 0.20 25);
+  --color-info: oklch(0.70 0.10 220);
+
+  /* Tipografía */
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-accent: "Cinzel", "Cormorant Garamond", serif;
+  --font-arabic: "Amiri", "Tajawal", serif;
+
+  /* Radios */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Sombras (firmadas en dorado) */
+  --shadow-soft: 0 1px 2px oklch(0% 0 0 / 0.4), 0 4px 12px oklch(0% 0 0 / 0.3);
+  --shadow-glow: 0 0 0 1px oklch(0.55 0.10 70 / 0.4), 0 8px 32px oklch(0.78 0.13 82 / 0.12);
+  --shadow-deep: 0 4px 20px oklch(0% 0 0 / 0.5), 0 12px 48px oklch(0% 0 0 / 0.4);
+
+  /* Curvas */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+
+  /* Breakpoints custom (Tailwind v4) */
+  --breakpoint-3xl: 1920px;
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.22 0.04 60 / 0.4), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.20 0.06 50 / 0.3), transparent 50%),
+      var(--color-bg-deep);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url("/patterns/noise.svg");
+    background-size: 240px 240px;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+  }
+
+  [dir="rtl"] body {
+    font-family: var(--font-arabic);
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-bg-deep);
+  }
+
+  /* Focus rings dorados */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold-deep) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gold-deep);
+    border-radius: 9999px;
+    border: 2px solid var(--color-bg-deep);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold);
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw + 1rem, 5.5rem); line-height: 1.05; }
+  h2 { font-size: clamp(1.875rem, 3vw + 1rem, 3.75rem); line-height: 1.1; }
+  h3 { font-size: clamp(1.5rem, 1.5vw + 1rem, 2.5rem); line-height: 1.15; }
+  h4 { font-size: clamp(1.125rem, 0.5vw + 1rem, 1.5rem); line-height: 1.3; }
+
+  .accent { font-family: var(--font-accent); letter-spacing: 0.18em; text-transform: uppercase; }
+  .display { font-family: var(--font-display); }
+  .display-italic { font-family: var(--font-display); font-style: italic; }
+
+  p { color: var(--color-ink-muted); }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img, video, svg { max-width: 100%; height: auto; }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-gold-deep) 30%,
+      var(--color-gold) 50%,
+      var(--color-gold-deep) 70%,
+      transparent
+    );
+  }
+
+  button { font-family: inherit; }
+
+  /* RTL helpers */
+  [dir="rtl"] .rtl-flip { transform: scaleX(-1); }
+}
+
+/* =========================================================================
+   Componentes utilitarios
+   ========================================================================= */
+
+@layer components {
+
+  /* Dorado real con gradiente metalizado */
+  .gold-gradient {
+    background: conic-gradient(
+      from 200deg at 50% 50%,
+      var(--color-gold-deep) 0deg,
+      var(--color-gold) 90deg,
+      var(--color-gold-bright) 180deg,
+      var(--color-gold) 270deg,
+      var(--color-gold-deep) 360deg
+    );
+  }
+
+  .gold-text {
+    background: linear-gradient(
+      135deg,
+      var(--color-gold-deep) 0%,
+      var(--color-gold) 30%,
+      var(--color-gold-bright) 50%,
+      var(--color-gold) 70%,
+      var(--color-gold-deep) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .gold-border {
+    border: 1px solid var(--color-gold-deep);
+    box-shadow: inset 0 1px 0 oklch(0.86 0.15 88 / 0.35);
+  }
+
+  /* Botón primario dorado con shimmer */
+  .btn-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-accent);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-bg-deep);
+    background: linear-gradient(
+      135deg,
+      var(--color-gold-deep) 0%,
+      var(--color-gold) 30%,
+      var(--color-gold-bright) 50%,
+      var(--color-gold) 70%,
+      var(--color-gold-deep) 100%
+    );
+    background-size: 200% 200%;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-gold-deep);
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 0.25),
+      0 6px 20px oklch(0.78 0.13 82 / 0.18);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 320ms var(--ease-out-expo);
+  }
+
+  .btn-primary:hover {
+    background-position: 100% 50%;
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 0.35),
+      0 10px 28px oklch(0.78 0.13 82 / 0.28);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      oklch(1 0 0 / 0.35) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 700ms var(--ease-out-expo);
+  }
+
+  .btn-primary:hover::after {
+    transform: translateX(100%);
+  }
+
+  /* Botón secundario / ghost */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-accent);
+    font-size: 0.8125rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    background: transparent;
+    border: 1px solid var(--color-gold-deep);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 280ms var(--ease-out-expo);
+  }
+
+  .btn-ghost:hover {
+    background: oklch(0.78 0.13 82 / 0.08);
+    border-color: var(--color-gold);
+    color: var(--color-gold-bright);
+  }
+
+  /* Card velvet */
+  .card-velvet {
+    position: relative;
+    background:
+      linear-gradient(180deg, var(--color-bg-velvet), var(--color-bg-night));
+    border: 1px solid oklch(0.55 0.10 70 / 0.18);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 380ms var(--ease-out-expo), box-shadow 380ms var(--ease-out-expo);
+  }
+
+  .card-velvet:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px oklch(0.78 0.13 82 / 0.12);
+    border-color: oklch(0.55 0.10 70 / 0.4);
+  }
+
+  /* Input fields */
+  .field {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+    background: oklch(0.18 0.020 55 / 0.6);
+    border: 1px solid oklch(0.55 0.10 70 / 0.25);
+    border-radius: var(--radius-md);
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+
+  .field::placeholder {
+    color: var(--color-ink-subtle);
+  }
+
+  .field:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    background: oklch(0.18 0.020 55 / 0.9);
+    box-shadow: 0 0 0 3px oklch(0.78 0.13 82 / 0.18);
+  }
+
+  /* Chip de nota olfativa */
+  .note-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    font-family: var(--font-accent);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: oklch(0.22 0.025 50 / 0.8);
+    border: 1px solid var(--color-gold-deep);
+    border-radius: var(--radius-full);
+    color: var(--color-ink);
+    transition: all 200ms var(--ease-out-expo);
+  }
+
+  .note-chip:hover {
+    background: oklch(0.78 0.13 82 / 0.1);
+    border-color: var(--color-gold);
+  }
+
+  /* Divisor ornamental */
+  .ornament-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    color: var(--color-gold);
+  }
+
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-gold-deep), transparent);
+    max-width: 8rem;
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    font-family: var(--font-accent);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-radius: var(--radius-xs);
+  }
+
+  .badge-gold {
+    color: var(--color-bg-deep);
+    background: var(--color-gold);
+  }
+
+  .badge-outline {
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold-deep);
+  }
+
+  .badge-new {
+    color: var(--color-bg-deep);
+    background: var(--color-success);
+  }
+
+  .badge-limited {
+    color: var(--color-ink);
+    background: var(--color-copper);
+  }
+
+  /* Halo radial detrás de productos hero */
+  .halo {
+    position: relative;
+  }
+
+  .halo::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(
+      circle at center,
+      oklch(0.78 0.13 82 / 0.18) 0%,
+      transparent 60%
+    );
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-gold);
+    color: var(--color-bg-deep);
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-radius: var(--radius-md);
+    transition: top 200ms ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+/* =========================================================================
+   Animaciones
+   ========================================================================= */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes incense-rise {
+  0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+  20% { opacity: 0.8; }
+  100% { transform: translateY(-200px) translateX(20px) scale(1.5); opacity: 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.78 0.13 82 / 0.5); }
+  50% { box-shadow: 0 0 0 12px oklch(0.78 0.13 82 / 0); }
+}
+
+.animate-fade-up { animation: fade-up 700ms var(--ease-out-expo) both; }
+.animate-fade-in { animation: fade-in 600ms ease both; }
+.animate-pulse-gold { animation: pulse-gold 2.5s ease-in-out infinite; }
+
+/* Marquee infinito */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+[dir="rtl"] .marquee-track {
+  animation-direction: reverse;
+}
+
+/* View transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 380ms;
+  animation-timing-function: var(--ease-out-expo);
+}

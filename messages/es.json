@@ -1,0 +1,166 @@
+{
+  "site": {
+    "name": "Sol Perfumes Árabes",
+    "tagline": "Perfumería árabe de nicho",
+    "description": "Attar, mukhallat, oud y bakhoor seleccionados a mano. Envíos a toda la UE."
+  },
+  "nav": {
+    "home": "Inicio",
+    "perfumes": "Perfumes",
+    "collections": "Colecciones",
+    "notes": "Notas olfativas",
+    "fairs": "Ferias",
+    "story": "Historia",
+    "blog": "Diario",
+    "contact": "Contacto",
+    "account": "Mi cuenta",
+    "cart": "Carrito",
+    "wishlist": "Favoritos",
+    "search": "Buscar",
+    "menu": "Menú",
+    "close": "Cerrar"
+  },
+  "topbar": {
+    "shipping": "Envío gratis a partir de 80 €",
+    "sample": "Muestra de regalo en pedidos > 120 €"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Sol Perfumes Árabes",
+      "title": "El alma del oriente,",
+      "titleAccent": "destilada en oro.",
+      "subtitle": "Attar, mukhallat y oud seleccionados a mano de los maestros perfumistas de Dubái, Damasco y Marrakech.",
+      "ctaPrimary": "Descubrir perfumes",
+      "ctaSecondary": "Ver colecciones"
+    },
+    "marquee": {
+      "items": ["Oud auténtico", "Rosa de Taif", "Mukhallat artesanal", "Bakhoor sagrado", "Edición limitada", "Envío 24h"]
+    },
+    "collections": {
+      "kicker": "Colecciones",
+      "title": "Selecciones cuidadas",
+      "subtitle": "Familias olfativas para cada momento, cada estación y cada estado de ánimo."
+    },
+    "bestsellers": {
+      "kicker": "Más amados",
+      "title": "Bestsellers",
+      "viewAll": "Ver todos"
+    },
+    "pyramid": {
+      "kicker": "Anatomía de un perfume",
+      "title": "La pirámide olfativa",
+      "subtitle": "Salida, corazón, fondo. Tres actos de un mismo poema.",
+      "top": "Notas de salida",
+      "topDesc": "Las primeras impresiones. Cítricos, hierbas, aldehídos.",
+      "heart": "Notas de corazón",
+      "heartDesc": "El alma del perfume. Florales, frutales, especias.",
+      "base": "Notas de fondo",
+      "baseDesc": "La estela. Maderas, ámbar, almizcle, oud."
+    },
+    "fairs": {
+      "kicker": "Donde estaremos",
+      "title": "Próximas ferias",
+      "viewAll": "Calendario completo"
+    },
+    "testimonials": {
+      "kicker": "Testimonios",
+      "title": "Voces que confían en nosotros"
+    },
+    "newsletter": {
+      "kicker": "Carta perfumada",
+      "title": "Suscríbete y recibe una muestra de regalo",
+      "subtitle": "Una carta mensual con lanzamientos, ferias y descuentos exclusivos.",
+      "placeholder": "tu@email.com",
+      "cta": "Suscribirme",
+      "consent": "Acepto recibir comunicaciones de Sol Perfumes Árabes y la política de privacidad."
+    }
+  },
+  "product": {
+    "size": "Tamaño",
+    "quantity": "Cantidad",
+    "addToCart": "Añadir al carrito",
+    "outOfStock": "Agotado",
+    "notify": "Avísame cuando vuelva",
+    "share": "Compartir",
+    "wishlist": "Añadir a favoritos",
+    "perfumer": "Perfumista",
+    "year": "Año de lanzamiento",
+    "origin": "Origen",
+    "concentration": "Concentración",
+    "details": "Detalles",
+    "story": "Historia",
+    "howToUse": "Cómo usarlo",
+    "reviews": "Reseñas",
+    "related": "Te puede gustar",
+    "stockLeft": "Solo quedan {count} unidades",
+    "freeShipping": "Envío gratis",
+    "returns": "Devolución gratuita en 14 días"
+  },
+  "cart": {
+    "title": "Tu carrito",
+    "empty": "Tu carrito está vacío",
+    "emptyCta": "Descubre nuestros perfumes",
+    "subtotal": "Subtotal",
+    "shipping": "Envío",
+    "tax": "Impuestos",
+    "total": "Total",
+    "checkout": "Tramitar pedido",
+    "promoCode": "Código promocional",
+    "apply": "Aplicar",
+    "remove": "Eliminar",
+    "free": "Gratis"
+  },
+  "checkout": {
+    "contact": "Contacto",
+    "shipping": "Envío",
+    "payment": "Pago",
+    "placeOrder": "Confirmar pedido",
+    "guestCheckout": "Comprar como invitado"
+  },
+  "fairs": {
+    "title": "Calendario de ferias",
+    "subtitle": "Descubre dónde estamos cada estación. Visítanos y huele las nuevas colecciones antes que nadie.",
+    "upcoming": "Próximas",
+    "ongoing": "En curso",
+    "past": "Pasadas",
+    "viewList": "Lista",
+    "viewCalendar": "Calendario",
+    "viewMap": "Mapa",
+    "subscribe": "Suscribirse al calendario",
+    "addToCalendar": "Añadir a mi calendario",
+    "official": "Web oficial",
+    "tickets": "Entradas",
+    "from": "Del",
+    "to": "al",
+    "noResults": "No hay ferias con esos filtros."
+  },
+  "footer": {
+    "shop": "Tienda",
+    "company": "Empresa",
+    "support": "Soporte",
+    "legal": "Legal",
+    "shippingReturns": "Envíos y devoluciones",
+    "privacy": "Política de privacidad",
+    "terms": "Términos y condiciones",
+    "imprint": "Aviso legal",
+    "cookies": "Cookies",
+    "newsletter": "Suscríbete a la carta perfumada",
+    "rights": "Todos los derechos reservados.",
+    "handcrafted": "Hecho a mano en España"
+  },
+  "common": {
+    "loading": "Cargando…",
+    "error": "Algo ha fallado. Inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "more": "Más",
+    "less": "Menos",
+    "yes": "Sí",
+    "no": "No"
+  }
+}

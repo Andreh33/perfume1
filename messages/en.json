@@ -1,0 +1,166 @@
+{
+  "site": {
+    "name": "Sol Perfumes Árabes",
+    "tagline": "Arabian niche perfumery",
+    "description": "Hand-picked attar, mukhallat, oud and bakhoor. EU-wide shipping."
+  },
+  "nav": {
+    "home": "Home",
+    "perfumes": "Perfumes",
+    "collections": "Collections",
+    "notes": "Olfactive notes",
+    "fairs": "Fairs",
+    "story": "Story",
+    "blog": "Journal",
+    "contact": "Contact",
+    "account": "My account",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "search": "Search",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "topbar": {
+    "shipping": "Free shipping over €80",
+    "sample": "Free sample with orders over €120"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Sol Perfumes Árabes",
+      "title": "The soul of the Orient,",
+      "titleAccent": "distilled in gold.",
+      "subtitle": "Attar, mukhallat and oud hand-picked from the master perfumers of Dubai, Damascus and Marrakech.",
+      "ctaPrimary": "Discover perfumes",
+      "ctaSecondary": "Browse collections"
+    },
+    "marquee": {
+      "items": ["Authentic oud", "Taif rose", "Artisan mukhallat", "Sacred bakhoor", "Limited edition", "24h shipping"]
+    },
+    "collections": {
+      "kicker": "Collections",
+      "title": "Curated selections",
+      "subtitle": "Olfactive families for every moment, every season and every mood."
+    },
+    "bestsellers": {
+      "kicker": "Most loved",
+      "title": "Bestsellers",
+      "viewAll": "See all"
+    },
+    "pyramid": {
+      "kicker": "Anatomy of a perfume",
+      "title": "The olfactive pyramid",
+      "subtitle": "Top, heart, base. Three acts of the same poem.",
+      "top": "Top notes",
+      "topDesc": "First impressions. Citrus, herbs, aldehydes.",
+      "heart": "Heart notes",
+      "heartDesc": "The soul. Florals, fruits, spices.",
+      "base": "Base notes",
+      "baseDesc": "The trail. Woods, amber, musk, oud."
+    },
+    "fairs": {
+      "kicker": "Where we'll be",
+      "title": "Upcoming fairs",
+      "viewAll": "Full calendar"
+    },
+    "testimonials": {
+      "kicker": "Testimonials",
+      "title": "Voices that trust us"
+    },
+    "newsletter": {
+      "kicker": "Perfumed letter",
+      "title": "Subscribe and receive a free sample",
+      "subtitle": "A monthly letter with launches, fairs and exclusive offers.",
+      "placeholder": "you@email.com",
+      "cta": "Subscribe",
+      "consent": "I agree to receive communications from Sol Perfumes Árabes and the privacy policy."
+    }
+  },
+  "product": {
+    "size": "Size",
+    "quantity": "Quantity",
+    "addToCart": "Add to cart",
+    "outOfStock": "Out of stock",
+    "notify": "Notify me when back",
+    "share": "Share",
+    "wishlist": "Add to wishlist",
+    "perfumer": "Perfumer",
+    "year": "Release year",
+    "origin": "Origin",
+    "concentration": "Concentration",
+    "details": "Details",
+    "story": "Story",
+    "howToUse": "How to use",
+    "reviews": "Reviews",
+    "related": "You may also like",
+    "stockLeft": "Only {count} left",
+    "freeShipping": "Free shipping",
+    "returns": "Free 14-day returns"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty",
+    "emptyCta": "Discover our perfumes",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "total": "Total",
+    "checkout": "Checkout",
+    "promoCode": "Promo code",
+    "apply": "Apply",
+    "remove": "Remove",
+    "free": "Free"
+  },
+  "checkout": {
+    "contact": "Contact",
+    "shipping": "Shipping",
+    "payment": "Payment",
+    "placeOrder": "Place order",
+    "guestCheckout": "Checkout as guest"
+  },
+  "fairs": {
+    "title": "Fair calendar",
+    "subtitle": "Discover where we'll be each season. Visit us and smell the new collections first.",
+    "upcoming": "Upcoming",
+    "ongoing": "Ongoing",
+    "past": "Past",
+    "viewList": "List",
+    "viewCalendar": "Calendar",
+    "viewMap": "Map",
+    "subscribe": "Subscribe to calendar",
+    "addToCalendar": "Add to my calendar",
+    "official": "Official site",
+    "tickets": "Tickets",
+    "from": "From",
+    "to": "to",
+    "noResults": "No fairs match these filters."
+  },
+  "footer": {
+    "shop": "Shop",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal",
+    "shippingReturns": "Shipping & returns",
+    "privacy": "Privacy policy",
+    "terms": "Terms & conditions",
+    "imprint": "Legal notice",
+    "cookies": "Cookies",
+    "newsletter": "Subscribe to the perfumed letter",
+    "rights": "All rights reserved.",
+    "handcrafted": "Handcrafted in Spain"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong. Try again.",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "next": "Next",
+    "previous": "Previous",
+    "more": "More",
+    "less": "Less",
+    "yes": "Yes",
+    "no": "No"
+  }
+}
